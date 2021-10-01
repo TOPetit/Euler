@@ -17,7 +17,16 @@ def main():
         try:
             for arg in args:
                 int(arg)
-            print(args)  # Process arguments
+            # print(args)  # Process arguments
+            found = []
+            for arg in args:
+                for name, value in vars(problems).items():
+                    if name == "solve" + arg:
+                        value()
+                        found.append(arg)
+            for arg in args:
+                if not (arg in found):
+                    print("Be careful: problem " + arg + " is not solved yet !")
         except:
             print(
                 "\nError in arguments.\n\nSpecify which problems you want to solve.\nExamples:\n\tmain.py 1 2 3 (solve problems 1, 2 and 3)\n\tmain.py all (solve all problems)\n"
