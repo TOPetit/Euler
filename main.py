@@ -10,8 +10,9 @@ def main():
             "\nError in arguments.\n\nSpecify which problems you want to solve.\nExamples:\n\tmain.py 1 2 3 (solve problems 1, 2 and 3)\n\tmain.py all (solve all problems)\n"
         )
     elif args[0] == "all" and nb_args == 1:
-        for name, value in vars(problems).items():
-            value()
+        print(
+            "\nError in arguments.\n\nSpecify which problems you want to solve.\nExamples:\n\tmain.py 1 2 3 (solve problems 1, 2 and 3)\n\tmain.py all (solve all problems)\n"
+        )
 
     else:
         try:
