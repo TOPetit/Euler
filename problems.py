@@ -26,3 +26,14 @@ def solve3():
         else:
             n //= i
     print(n)
+
+def solve4():
+    res = 0
+    for i in range(1000):
+        for j in range(1000):
+            n = i * j
+            if res < n:
+                l = [int(x) for x in str(n)]
+                if l == l[::-1]:
+                    res = n
+    print(res)
