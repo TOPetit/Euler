@@ -154,3 +154,23 @@ def solve11():
             maxi = max(maxi, diagonal1)
             maxi = max(maxi, diagonal2)
     print(maxi)
+
+
+def solve12():
+    q = 500
+    k = 0
+    n = 1
+    def countDivisors(n):
+        cnt = 0
+        for i in range(1, (int)(math.sqrt(n)) + 1):
+            if (n % i == 0) :
+                if (n / i == i):
+                    cnt = cnt + 1
+                else:
+                    cnt = cnt + 2
+        return cnt
+
+    while countDivisors(k) < q:
+        k = n * (n + 1) // 2
+        n += 1
+    print(k)
