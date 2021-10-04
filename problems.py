@@ -110,3 +110,12 @@ def solve9():
             if a ** 2 == b ** 2 + c ** 2:
                 x, y, z = a, b, c
     print(x * y * z)
+
+
+def solve10():
+    n = 2000000
+    value = 2
+    for num in range(3, n, 2):
+        if all(num % i != 0 for i in range(2, int(math.sqrt(num)) + 1)):
+            value += num
+    print(value)
