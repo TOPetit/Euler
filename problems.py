@@ -119,3 +119,38 @@ def solve10():
         if all(num % i != 0 for i in range(2, int(math.sqrt(num)) + 1)):
             value += num
     print(value)
+
+
+def solve11():
+    k = 4
+    f = open("sources/problem11.txt", "r")
+    lines = f.readlines()
+    f.close()
+    l = [[] for i in range(len(lines))]
+    i = 0
+    for line in lines:
+        try:
+            l[i] = line.strip().split(" ")
+            l[i] = list(map(int, l[i]))
+        except:
+            pass
+        i += 1
+    n = len(l)
+    m = len(l[0])
+    maxi = 0
+    for x in range(n-k+1):
+        for y in range(m-k+1):
+            horizontal = 1
+            vertical = 1
+            diagonal1 = 1
+            diagonal2 = 1
+            for p in range(k):
+                horizontal *= l[x][y + p]
+                vertical *= l[x + p][y]
+                diagonal1 *= l[x + p][y + p]
+                diagonal2 *= l[x + k - p - 1][y + p]
+            maxi = max(maxi, horizontal)
+            maxi = max(maxi, vertical)
+            maxi = max(maxi, diagonal1)
+            maxi = max(maxi, diagonal2)
+    print(maxi)
