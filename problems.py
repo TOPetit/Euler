@@ -1,3 +1,6 @@
+import math
+
+
 def solve1():
     res = 0
     for i in range(1000):
@@ -54,3 +57,26 @@ def solve5():
     while not is_ok(k):
         k += 2
     print(k)
+
+
+def solve6():
+    n = 100
+    sum_of_sq = 0
+    sq_of_sum = 0
+    for i in range(n):
+        sum_of_sq += (i + 1) ** 2
+        sq_of_sum += i + 1
+    print(sq_of_sum ** 2 - sum_of_sq)
+
+
+def solve7():
+    n = 10001
+    i = 1
+    num = 1
+    value = 0
+    while i < n:
+        num += 2
+        if all(num % i != 0 for i in range(2, int(math.sqrt(num)) + 1)):
+            value = num
+            i += 1
+    print(value)
