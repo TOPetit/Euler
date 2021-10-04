@@ -80,3 +80,22 @@ def solve7():
             value = num
             i += 1
     print(value)
+
+
+def solve8():
+    n = 13
+    l = []
+    f = open("sources/problem8.txt", "r")
+    lines = f.readlines()
+    f.close()
+    for line in lines:
+        for num in line:
+            try:
+                l.append(int(num))
+            except:
+                pass
+    nb_num = len(l)
+    maxi = 0
+    for i in range(0, nb_num - n):
+        maxi = max(maxi, math.prod(l[i : i + n]))
+    print(maxi)
