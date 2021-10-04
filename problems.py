@@ -5,6 +5,7 @@ def solve1():
             res += i
     print(res)
 
+
 def solve2():
     res = 0
     n = 1
@@ -17,6 +18,7 @@ def solve2():
             res += n
     print(res)
 
+
 def solve3():
     n = 600851475143
     i = 2
@@ -26,6 +28,7 @@ def solve3():
         else:
             n //= i
     print(n)
+
 
 def solve4():
     res = 0
@@ -37,3 +40,17 @@ def solve4():
                 if l == l[::-1]:
                     res = n
     print(res)
+
+
+def solve5():
+    def is_ok(k):
+        n = 20
+        i = 1
+        while i < n and k % i == 0:
+            i += 1
+        return k % i == 0
+
+    k = 2
+    while not is_ok(k):
+        k += 2
+    print(k)
