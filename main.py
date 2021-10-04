@@ -1,5 +1,6 @@
 import problems
 import sys
+import time
 
 
 def main():
@@ -24,7 +25,12 @@ def main():
             for arg in args:
                 for name, value in vars(problems).items():
                     if name == "solve" + arg:
+                        print("----- PROBLEM %03d -----" % (int(arg)))
+                        print("Value : ", end="")
+                        current = time.time()
                         value()
+                        current = time.time() - current
+                        print("Solved in %3.2fs.\n" % (current))
                         found.append(arg)
             for arg in args:
                 if not (arg in found):
@@ -34,12 +40,15 @@ def main():
             elif len(not_found) == 1:
                 print("Be careful: problem " + arg + " is not solved yet !")
             else:
-                print("Be careful: these problems do not have a written solution yet : ", end='')
+                print(
+                    "Be careful: these problems do not have a written solution yet : ",
+                    end="",
+                )
                 for arg in not_found:
-                    if (arg == not_found[-1]):
+                    if arg == not_found[-1]:
                         print(arg + ".")
                     else:
-                        print(arg + ', ', end='')
+                        print(arg + ", ", end="")
 
         except:
             print(
