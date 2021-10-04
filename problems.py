@@ -99,3 +99,14 @@ def solve8():
     for i in range(0, nb_num - n):
         maxi = max(maxi, math.prod(l[i : i + n]))
     print(maxi)
+
+
+def solve9():
+    # hypothenuse
+    x, y, z = 0, 0, 0
+    for a in range(334, 999):
+        for b in range(1, 999 - a):
+            c = 1000 - b - a
+            if a ** 2 == b ** 2 + c ** 2:
+                x, y, z = a, b, c
+    print(x * y * z)
