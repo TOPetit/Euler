@@ -208,3 +208,8 @@ def solve14():
             mem = i
             maxi = chain
     print(mem)
+
+
+def solve15():
+    n = 20
+    print(math.factorial(2 * n) // (math.factorial(n) ** 2))
