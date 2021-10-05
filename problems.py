@@ -226,66 +226,68 @@ def solve16():
 def solve17():
     n = 1000
     values = {
-        "1": 1,
-        "2": 3,
-        "3": 5,
-        "4": 4,
-        "5": 4,
-        "6": 3,
-        "7": 5,
-        "8": 5,
-        "9": 4,
-        "10": 3,
-        "11": 6,
-        "12": 6,
-        "13": 8,
-        "14": 8,
-        "15": 7,
-        "16": 7,
-        "17": 9,
-        "18": 8,
-        "19": 9,
-        "20": 6,
-        "30": 6,
-        "40": 6,
-        "50": 5,
-        "60": 5,
-        "70": 7,
-        "80": 6,
-        "90": 6,
-        "100": 7,
-        "1000": 8,
-        "and": 3,
-        "plural": 1,
+        "1": "One",
+        "2": "Two",
+        "3": "Three",
+        "4": "Four",
+        "5": "Five",
+        "6": "Six",
+        "7": "Seven",
+        "8": "Eight",
+        "9": "Nine",
+        "10": "Ten",
+        "11": "Eleven",
+        "12": "Twelve",
+        "13": "Thirteen",
+        "14": "Fourteen",
+        "15": "Fifteen",
+        "16": "Sixteen",
+        "17": "Seventeen",
+        "18": "Eighteen",
+        "19": "Nineteen",
+        "20": "Twenty",
+        "30": "Thirty",
+        "40": "Forty",
+        "50": "Fifty",
+        "60": "Sixty",
+        "70": "Seventy",
+        "80": "Eighty",
+        "90": "Ninety",
+        "100": "Hundred",
+        "1000": "Thousand",
+        "and": "and",
     }
     res = 0
     for i in range(1, n + 1):
+        tmp = ""
         num_list = list(str(i))
-        print(num_list)
+        # print(num_list)
         if len(num_list) == 4:
-            res += values["1000"] + values["1"]
+            tmp = values["1"] + values["1000"]
             num_list = []
-            print(num_list)
+            # print(num_list)
         if len(num_list) == 3:
             if num_list[0] != "0":
-                res += values["100"] + values[num_list[0]]
+                tmp = tmp + values[num_list[0]] + values["100"]
                 if num_list[1:] != ["0", "0"]:
-                    res += values["and"]
+                    tmp = tmp + values["and"]
             num_list = num_list[1:]
-            print(num_list)
+            # print(num_list)
         if len(num_list) == 2:
             if num_list[0] != "0":
-                if num_list[0] == 1:
-                    res += values["1" + num_list[1]]
+                if num_list[0] == "1":
+                    tmp = tmp + values["1" + num_list[1]]
                     num_list = []
-                    print(num_list)
+                    # print(num_list)
                 else:
-                    res += values[num_list[0] + "0"]
+                    tmp = tmp + values[num_list[0] + "0"]
                     num_list = num_list[1:]
-                    print(num_list)
+                    # print(num_list)
             else:
                 num_list = num_list[1:]
         if len(num_list) == 1:
             if num_list[0] != "0":
-                res += values[num_list[0]]
+                tmp = tmp + values[num_list[0]]
+        # print(tmp)
+        res += len(tmp)
     print(res)
