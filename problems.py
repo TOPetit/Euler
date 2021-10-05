@@ -186,3 +186,25 @@ def solve13():
     for i in range(len(lines)):
         res += int(lines[i][: 2 * d])  # Could give bad result
     print(str(res)[:d])
+
+
+def solve14():
+    def collatz(n, iter):
+        if n % 2 == 0:
+            return collatz(n // 2, iter + 1)
+        else:
+            if n == 1:
+                return iter
+            else:
+                return collatz(3 * n + 1, iter + 1)
+
+    n = 1000000
+    maxi = 0
+    mem = 0
+    for i in range(1, n):
+        chain = collatz(i, 1)
+        if maxi < chain:
+            # print("%d: %d" % (i, chain))
+            mem = i
+            maxi = chain
+    print(mem)
