@@ -213,3 +213,11 @@ def solve14():
 def solve15():
     n = 20
     print(math.factorial(2 * n) // (math.factorial(n) ** 2))
+
+
+def solve16():
+    n = 2 ** 1000
+    res = 0
+    for digit in str(n):
+        res += int(digit)
+    print(res)
