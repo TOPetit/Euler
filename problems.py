@@ -138,8 +138,8 @@ def solve11():
     n = len(l)
     m = len(l[0])
     maxi = 0
-    for x in range(n-k+1):
-        for y in range(m-k+1):
+    for x in range(n - k + 1):
+        for y in range(m - k + 1):
             horizontal = 1
             vertical = 1
             diagonal1 = 1
@@ -160,11 +160,12 @@ def solve12():
     q = 500
     k = 0
     n = 1
+
     def countDivisors(n):
         cnt = 0
         for i in range(1, (int)(math.sqrt(n)) + 1):
-            if (n % i == 0) :
-                if (n / i == i):
+            if n % i == 0:
+                if n / i == i:
                     cnt = cnt + 1
                 else:
                     cnt = cnt + 2
@@ -174,3 +175,14 @@ def solve12():
         k = n * (n + 1) // 2
         n += 1
     print(k)
+
+
+def solve13():
+    d = 10
+    f = open("sources/problem13.txt", "r")
+    lines = f.readlines()
+    f.close()
+    res = 0
+    for i in range(len(lines)):
+        res += int(lines[i][: 2 * d])  # Could give bad result
+    print(str(res)[:d])
