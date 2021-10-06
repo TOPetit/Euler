@@ -310,3 +310,22 @@ def solve18():
         for j in range(len(mem[i])):
             mem[i][j] = max(mem[i + 1][j], mem[i + 1][j + 1]) + mem[i][j]
     print(mem[0][0])
+
+
+def solve67():
+    f = open("sources/problem67.txt", "r")
+    lines = f.readlines()
+    f.close()
+    mem = [[] for i in range(len(lines))]
+    i = 0
+    for line in lines:
+        try:
+            mem[i] = line.strip().split(" ")
+            mem[i] = list(map(int, mem[i]))
+        except:
+            pass
+        i += 1
+    for i in range(len(mem) - 2, -1, -1):
+        for j in range(len(mem[i])):
+            mem[i][j] = max(mem[i + 1][j], mem[i + 1][j + 1]) + mem[i][j]
+    print(mem[0][0])
