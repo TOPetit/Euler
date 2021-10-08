@@ -322,6 +322,15 @@ def solve19():
     print(sundays)
 
 
+def solve20():
+    n = math.factorial(100)
+    res = 0
+    while n != 0:
+        res += n % 10
+        n = n // 10
+    print(res)
+
+
 def solve67():
     f = open("sources/problem67.txt", "r")
     lines = f.readlines()
