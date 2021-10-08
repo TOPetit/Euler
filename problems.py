@@ -1,4 +1,5 @@
 import math
+from datetime import date
 
 
 def solve1():
@@ -97,7 +98,7 @@ def solve8():
     nb_num = len(l)
     maxi = 0
     for i in range(0, nb_num - n):
-        maxi = max(maxi, math.prod(l[i : i + n]))
+        maxi = max(maxi, math.prod(l[i: i + n]))
     print(maxi)
 
 
@@ -310,6 +311,15 @@ def solve18():
         for j in range(len(mem[i])):
             mem[i][j] = max(mem[i + 1][j], mem[i + 1][j + 1]) + mem[i][j]
     print(mem[0][0])
+
+
+def solve19():
+    sundays = 0
+    for year in range(1901, 2001):
+        for month in range(1, 13):
+            if date(year, month, 1).weekday() == 6:
+                sundays += 1
+    print(sundays)
 
 
 def solve67():
