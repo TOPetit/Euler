@@ -349,6 +349,21 @@ def solve21():
     print(res)
 
 
+def solve22():
+    f = open("sources/problem22.txt", 'r')
+    lines = f.readline().replace('"', '').split(",")
+    f.close()
+    lines.sort()
+
+    res = 0
+    for i_name in range(len(lines)):
+        score = 0
+        for letter in lines[i_name]:
+            score += 1 + ord(letter) - ord('A')
+        res += score * (i_name + 1)
+    print(res)
+
+
 def solve67():
     f = open("sources/problem67.txt", "r")
     lines = f.readlines()
