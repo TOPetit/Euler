@@ -331,6 +331,24 @@ def solve20():
     print(res)
 
 
+def solve21():
+    n = 10000
+    divs = []
+    res = 0
+    for num in range(1, n + 1):
+        count = 0
+        for div in range(1, num):
+            if num % div == 0:
+                count += div
+        divs.append(count)
+    for i in range(1, n):
+        j = divs[i-1]
+        if j < n:
+            if divs[j-1] == i and i != j:
+                res += i
+    print(res)
+
+
 def solve67():
     f = open("sources/problem67.txt", "r")
     lines = f.readlines()
