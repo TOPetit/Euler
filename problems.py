@@ -408,6 +408,16 @@ def solve24():
     print(res)
 
 
+def solve25():
+    f = 1
+    g = 1
+    i = 1
+    while f < 10**999:
+        f, g = f + g, f
+        i += 1
+    print(i + 1)
+
+
 def solve67():
     f = open("sources/problem67.txt", "r")
     lines = f.readlines()
