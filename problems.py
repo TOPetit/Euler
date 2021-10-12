@@ -494,6 +494,17 @@ def solve28():
     print(res)
 
 
+def solve29():
+    n = 100
+    num_list = []
+    for a in range(2, n + 1):
+        for b in range(2, n + 1):
+            c = a ** b
+            if c not in num_list:
+                num_list.append(c)
+    print(len(num_list))
+
+
 def solve67():
     f = open("sources/problem67.txt", "r")
     lines = f.readlines()
