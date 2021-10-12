@@ -505,6 +505,16 @@ def solve29():
     print(len(num_list))
 
 
+def solve30():
+    n = 5
+    ub = (n + 1) * 9 ** n
+    res = 0
+    for num in range(2, ub + 1):
+        if sum(int(digit) ** n for digit in str(num)) == num:
+            res += num
+    print(res)
+
+
 def solve67():
     f = open("sources/problem67.txt", "r")
     lines = f.readlines()
