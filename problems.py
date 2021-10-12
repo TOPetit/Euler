@@ -48,6 +48,8 @@ def solve4():
 
 
 def solve5():
+    n = 20
+
     def is_ok(k):
         n = 20
         i = 1
@@ -55,9 +57,9 @@ def solve5():
             i += 1
         return k % i == 0
 
-    k = 2
+    k = n
     while not is_ok(k):
-        k += 2
+        k += n
     print(k)
 
 
