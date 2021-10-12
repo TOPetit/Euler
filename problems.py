@@ -478,6 +478,22 @@ def solve27():
     print(maxi)
 
 
+def solve28():
+    n = 1001
+    half = (n + 1) // 2
+    squares = [(2 * i + 1) * (2 * i + 1) for i in range(half)]
+    value = 1
+    res = 1
+    # print(squares)
+
+    for index in range(1, half):
+        for value in range(squares[index - 1], squares[index]):
+            if value % (index * 2) == 0:
+                res += value + 1
+                #print(value + 1)
+    print(res)
+
+
 def solve67():
     f = open("sources/problem67.txt", "r")
     lines = f.readlines()
