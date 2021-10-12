@@ -364,6 +364,41 @@ def solve22():
     print(res)
 
 
+def solve23():
+    n = 28124
+
+    def getDivisors(num):
+        if num == 1:
+            return 1
+        n = math.ceil(math.sqrt(num))
+        total = 1
+        divisor = 2
+        while (divisor < n):
+            if (num % divisor == 0):
+                total += divisor
+                total += num//divisor
+            divisor += 1
+        if n**2 == num:
+            total += n
+        return total
+
+    abundants = []
+    abundants_sum = list(range(n))
+    res = list(range(1, n))
+    for num in range(1, n):
+
+        if getDivisors(num) > num:
+            abundants.append(num)
+        #print("%d/%d" % (num, n))
+    for i, num in enumerate(abundants):
+        for num2 in abundants[i:]:
+            c = num + num2
+            if c < n:
+                abundants_sum[c] = 0
+        #print("%d/%d" % (i, n))
+    print(sum(abundants_sum))
+
+
 def solve67():
     f = open("sources/problem67.txt", "r")
     lines = f.readlines()
