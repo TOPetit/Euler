@@ -1,5 +1,6 @@
 import math
 from datetime import date
+from itertools import permutations
 
 
 def solve1():
@@ -397,6 +398,14 @@ def solve23():
                 abundants_sum[c] = 0
         #print("%d/%d" % (i, n))
     print(sum(abundants_sum))
+
+
+def solve24():
+    n = list(list(permutations(range(10)))[999999])
+    res = 0
+    for i, num in enumerate(n[::-1]):
+        res += num * 10 ** i
+    print(res)
 
 
 def solve67():
