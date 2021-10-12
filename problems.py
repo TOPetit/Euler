@@ -448,6 +448,36 @@ def solve26():
     print(i_maxi)
 
 
+def solve27():
+    n = 1000
+    a_list = range(-n, n + 1)
+    b_list = range(-n, n + 1)
+
+    def isPrime(n):
+        if n == 2 or n == 3:
+            return True
+        if n % 2 == 0 or n < 2:
+            return False
+        for i in range(3, int(n ** 0.5) + 1, 2):   # only odd numbers
+            if n % i == 0:
+                return False
+        return True
+
+    maxi = (0, 0)
+    i = 0
+    for a in a_list:
+        for b in b_list:
+            c = b
+            count = 0
+            while c > 0 and isPrime(c):
+                count += 1
+                c = count ** 2 + a * count + b
+            if i < count:
+                maxi = a * b
+                i = count
+    print(maxi)
+
+
 def solve67():
     f = open("sources/problem67.txt", "r")
     lines = f.readlines()
