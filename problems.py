@@ -431,17 +431,17 @@ def solve26():
         loop = True
         while d not in found:
             found.append(d)
-            d = (10 * r) // num
-            r = (10 * r) % num
+            d = (n * r) // num
+            r = (n * r) % num
             if r == 0:
                 loop = False
         value = len(found) - 1
-
+        """
         if loop:
             print("%d: %d" % (num, value))
         else:
             print("%d: %d" % (num, 0))
-
+        """
         if maxi <= value:
             maxi = value
             i_maxi = num
