@@ -418,6 +418,34 @@ def solve25():
     print(i + 1)
 
 
+def solve26():
+    n = 1000
+    maxi = 0
+    i_maxi = 0
+    for num in range(2, n):
+        found = []
+        d = 0
+        r = 1
+        loop = True
+        while d not in found:
+            found.append(d)
+            d = (10 * r) // num
+            r = (10 * r) % num
+            if r == 0:
+                loop = False
+        value = len(found) - 1
+
+        if loop:
+            print("%d: %d" % (num, value))
+        else:
+            print("%d: %d" % (num, 0))
+
+        if maxi <= value:
+            maxi = value
+            i_maxi = num
+    print(i_maxi)
+
+
 def solve67():
     f = open("sources/problem67.txt", "r")
     lines = f.readlines()
