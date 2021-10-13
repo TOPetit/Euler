@@ -515,6 +515,14 @@ def solve30():
     print(res)
 
 
+def solve31():
+    goal = 2.0
+    coins = [0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1.0, 2.0]
+    nb_coin = len(coins)
+    res = 0
+    print(res)
+
+
 def solve67():
     f = open("sources/problem67.txt", "r")
     lines = f.readlines()
