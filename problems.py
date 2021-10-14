@@ -392,13 +392,13 @@ def solve23():
 
         if getDivisors(num) > num:
             abundants.append(num)
-        #print("%d/%d" % (num, n))
+        # print("%d/%d" % (num, n))
     for i, num in enumerate(abundants):
         for num2 in abundants[i:]:
             c = num + num2
             if c < n:
                 abundants_sum[c] = 0
-        #print("%d/%d" % (i, n))
+        # print("%d/%d" % (i, n))
     print(sum(abundants_sum))
 
 
@@ -490,7 +490,7 @@ def solve28():
         for value in range(squares[index - 1], squares[index]):
             if value % (index * 2) == 0:
                 res += value + 1
-                #print(value + 1)
+                # print(value + 1)
     print(res)
 
 
@@ -516,11 +516,13 @@ def solve30():
 
 
 def solve31():
-    goal = 2.0
-    coins = [0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1.0, 2.0]
-    nb_coin = len(coins)
-    res = 0
-    print(res)
+    goal = 200
+    coins = [1, 2, 5, 10, 20, 50, 100, 200]
+    mem = [1] + [0] * goal
+    for coin in coins:
+        for i in range(coin, goal + 1):
+            mem[i] += mem[i-coin]
+    print(mem[goal])
 
 
 def solve67():
